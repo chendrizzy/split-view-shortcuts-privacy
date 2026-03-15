@@ -63,7 +63,7 @@
 <body>
   <div class="container">
     <h1>Privacy Policy</h1>
-    <p class="updated">Split View Shortcuts · Last updated March 14, 2026</p>
+    <p class="updated">Split View Shortcuts · Last updated March 15, 2026</p>
 
     <h2>Overview</h2>
     <p>Split View Shortcuts does not collect, store, transmit, or share any personal user data.</p>
@@ -72,7 +72,7 @@
     <p>The extension accesses browser tab information (tab IDs, split view IDs, tab positions, titles, URLs, and favicons) solely to perform keyboard shortcut actions and render the split view tab tree in the popup. This data is processed entirely within your browser in real time and is never stored, logged, or sent to any external server.</p>
 
     <h2>Shortcut Storage</h2>
-    <p>The extension uses <code>chrome.storage.sync</code> to persist your custom keyboard shortcut bindings (command name to key combination mappings only). This data syncs across your Chrome profiles via your Google account if sync is enabled, but is never accessible to the extension developer or any third party.</p>
+    <p>The extension uses <code>chrome.storage.sync</code> to persist your custom keyboard shortcut bindings (command name to key combination mappings only). This data syncs across your Chrome profiles via your Google account if sync is enabled, but is never accessible to the extension developer or any third party. It also uses <code>chrome.storage.local</code> to remember UI preferences such as the shortcuts panel collapse state.</p>
 
     <h2>Content Script</h2>
     <p>A content script runs on web pages to listen for keyboard events matching your configured shortcuts. It does not read, modify, or transmit any page content. It only detects key combinations and forwards the corresponding command name to the extension's service worker.</p>
@@ -81,7 +81,7 @@
     <p>The extension requires these permissions:</p>
     <ul>
       <li><strong>tabs</strong> — detect split view state, read tab metadata for the tab tree, perform tab operations (close, move, reload, focus)</li>
-      <li><strong>storage</strong> — persist custom shortcut bindings</li>
+      <li><strong>storage</strong> — persist custom shortcut bindings and UI preferences</li>
       <li><strong>Content script access</strong> to http/https pages — keyboard event listening for custom shortcuts</li>
     </ul>
 
